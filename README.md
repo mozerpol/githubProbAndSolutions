@@ -14,10 +14,13 @@ I'll post here all (and especially the most popular) problems, that I have when 
 9. Now you can `add .` and `commit` to your repo
 
 ### 2. When I try to upload updates to the repository after a successful commit
-Problem:
+
 `
 mozerpol@mozerpol-pc: git push -u origin main
 `
+
+Problem:
+
 ```shell
 Username for 'https://github.com': mozerpol
 Password for 'https://mozerpol@github.com': 
@@ -31,6 +34,20 @@ hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 Solution:
+
 `
 mozerpol@mozerpol-pc:~/Documents/MATLAB/matlabOPTSEgit$ git push -u --force origin main
 `
+
+### 3. Downloading the latest version of commit 
+Copy it to the terminal
+1. `git reset --hard HEAD`
+2. `git clean -xffd`
+3. `git pull` 
+
+
+
+
+
+
+
