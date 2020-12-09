@@ -3,7 +3,7 @@ I'll post here all (and especially the most popular) problems, that I have when 
 
 ------------
 
-### 1. Creating new repo and pushing first commit
+### 1. Easiest way to create new repo and pushing first commit
 
 1. Go to tab `Repositories`
 2. Click `New` and next fill all informations
@@ -40,6 +40,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 **Second solution (check if it's correct):**
 1. `git pull origin main:dev`
 2. `git push -u origin main`
+
 Similar problem on stackOverflow [09.12.2020]: https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have 
 
 ### 3. Downloading the latest version of commit
