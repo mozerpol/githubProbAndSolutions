@@ -1,6 +1,8 @@
 ## Repo description
 I'll post here all (and especially the most popular) problems, that I have when I'm using the github.
 
+------------
+
 ### 1. Creating new repo and pushing first commit
 
 1. Go to tab `Repositories`
@@ -13,14 +15,12 @@ I'll post here all (and especially the most popular) problems, that I have when 
 8. This will cause download the repository to your computer
 9. Now you can `add .` and `commit` to your repo
 
-### 2. When I try to upload updates to the repository after a successful commit
+### 2. "*error: failed to push some refs to*" 
+**Short desc:** When I try to upload updates to the repository after a successful commit.
 
-`
-mozerpol@mozerpol-pc: git push -u origin main
-`
+`mozerpol@mozerpol-pc: git push -u origin main`
 
-Problem:
-
+**Problem:**
 ```shell
 Username for 'https://github.com': mozerpol
 Password for 'https://mozerpol@github.com': 
@@ -33,21 +33,17 @@ hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
-Solution:
+**First solution:**
 
-`
-mozerpol@mozerpol-pc:~/Documents/MATLAB/matlabOPTSEgit$ git push -u --force origin main
-`
+1. `mozerpol@mozerpol-pc:~/Documents/MATLAB/matlabOPTSEgit$ git push -u --force origin main`
 
-### 3. Downloading the latest version of commit 
+**Second solution (check if it's correct):**
+1. `git pull origin main:dev`
+2. `git push -u origin main`
+Similar problem on stackOverflow [09.12.2020]: https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have 
+
+### 3. Downloading the latest version of commit
 Copy it to the terminal
 1. `git reset --hard HEAD`
 2. `git clean -xffd`
-3. `git pull` 
-
-
-
-
-
-
-
+3. `git pull`
