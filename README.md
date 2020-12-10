@@ -48,3 +48,39 @@ Copy it to the terminal
 1. `git reset --hard HEAD`
 2. `git clean -xffd`
 3. `git pull`
+
+### 4. "*error: failed to push some refs to*" <a name="afterUndo"></a>
+**Short desc:** When I try to upload updates to the repository after undo last commit.
+
+`mozerpol@mozerpol-pc: git push -u origin main`
+
+**Problem:**
+```shell
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/mozerpol/learningRISC-V.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+```
+
+**Solution:**
+`mozerpol@mozerpol-pc: git push -uf origin main`
+
+You must use *force* flag.
+
+### 5. Deleting the latest commit
+If you want do this, put this command into terminal: `git reset --soft HEAD~1`
+
+**It's very important!** After this you must add new changes, commit them and push with force flag. Without this you'll have a problem from [here](#afterUndo).
+
+
+
+
+
+
+
+
+
+
