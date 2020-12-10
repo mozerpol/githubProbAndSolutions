@@ -73,7 +73,7 @@ You must use *force* flag.
 ### 5. Deleting the latest commit
 If you want do this, put this command into terminal: `git reset --soft HEAD~1`
 
-**It's very important!** After this you must add new changes, commit them and push with force flag. Without this you'll have a problem from [here](#afterUndo).
+**It's very important!** After this you must add new changes, commit them and push with force flag. Without this you'll have a problem from [problem number 4](#afterUndo).
 
 
 
