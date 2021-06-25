@@ -1,5 +1,6 @@
 ## Repo description
 I'll post here all (and especially the most popular) problems, that I have when I'm using the github.
+
 ------------
 
 ### 1. The easiest way to create new repo and pushing first commit 
@@ -66,3 +67,49 @@ Copy it to the terminal
 If you want do this, put this command into terminal: `git reset --soft HEAD~1`
 
 **It's very important!** After this you must add new changes, commit them and push with force flag. Without this you'll have a problem from *problem number 2*.
+
+### 5. Merging two git repo into one
+Based on [this](#https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/) article (date of access: 24.06.2021).
+
+Very important info. You will keep all history of commits, but unfortunately you'll lose the number of daily contributions from the table on your github profile page, I mean: <br/>
+![obraz](https://user-images.githubusercontent.com/43972902/123415620-d7211b00-d5b5-11eb-9b38-f15687b23ebe.png)
+
+Step by step:
+1. Create new repo (you can use way from first step in this repo).
+2. Create inside new file (later we'll delete it). <br/>
+`touch deleteme.txt` <br/>
+3. Commit this changes <br/>
+`git add .` <br/>
+`git commit -m "Initial dummy commit"`
+4. Add a remote for and fetch the first old repo. <br/>
+`git remote add -f old_a <link to the first project>`, example: <br/>
+`git remote add -f old_a https://github.com/mozerpol/learningVerilog.git` <br/>
+But very important info, you must be careful, you can't have two the same files in old and new repo like "README.md", in this case will be an error.
+5. `git merge old_a/main --allow-unrelated-histories` <br/>
+Why we must add [--allow-unrelated-histories](#https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories-on-rebase)? <br/>
+After execution this instruction (in my case) will open nano editor to add comment, you can just close this without adding sth.
+6. Delete first unnecessary commit and commit changes. <br/>
+`rm deleteme.txt` <br/>
+`git commit -m "Clean up initial file"`
+7. Create a new folder where you want to move the old repository <br/>
+`mkdir old_a`
+8. Move everything there except the folder you are moving to and the *.git* folder <br/>
+`mv !(.git|old_a) ./old_a/`
+9. `git add .`
+10. `git commit -m "Move old_a files into subdir"`
+
+Do the same thing for old_b
+
+1. `git remote add -f old_a <link to the first project>`
+2. `git merge old_a/main --allow-unrelated-histories`
+3. `mkdir old_b`
+4. `mv !(old_a|old_b|.git) ./old_b/`
+5. `git add .`
+6. `git commit -m "Move old_b files into subdir"`
+
+Merge repos, but before find files, which have the same name e.g. README.md in *old_a* and *old_b* folder. It's not allowed, you must get rid of this conflict and commit changes.
+1. Extract *old_a* and *old_b* to a shared folder <br/>
+`mv old_a/* ./` <br/>
+`mv old_b/* ./`
+2. `git add .`
+3. `git commit -m "Extract old_a and old_b to a shared folder"`
