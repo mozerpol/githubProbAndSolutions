@@ -3,6 +3,19 @@ I'll post here all (and especially the most popular) problems, that I have when 
 
 ------------
 
+### Table of contents <a name="tof"></a>
+1. The easiest way to create new repo and pushing first commit
+2. [*error: failed to push some refs to*](#2)
+3. [Downloading the latest version of commit](#3)
+4. [Deleting the latest commit](#4)
+5. [Merging two git repo into one](#5)
+6. [How to display the list of branches](#6)
+7. [How to change a branch](#7)
+8. [How to merge a branch](#8)
+9. [How to print out the history of commits with branches](#9)
+10. [The meaning of the commit options](#10)
+    1. [-m](#10.1) 
+
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
 
@@ -29,7 +42,7 @@ We have two ways.
 12. `git branch -M main`
 13. `git push -u origin main`
 
-### 2. "*error: failed to push some refs to*" 
+### 2. "*error: failed to push some refs to*" <a name="2"></a> [UP↑](#tof)
 **Short desc:** When I try to upload updates to the repository after a successful commit. <br/>
 **Possible cause:** Changing the same repository in two different places (e.g. on the computer and via github.com) without subsequent synchronization. After that an attempt to upload a latest commit from computer to the github.
 
@@ -57,18 +70,18 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 2. `git push -u origin main`
 
 Similar problem on stackOverflow [09.12.2020]: https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have 
-### 3. Downloading the latest version of commit
+### 3. Downloading the latest version of commit <a name="2"></a> [UP↑](#tof)
 Copy it to the terminal
 1. `git reset --hard HEAD`
 2. `git clean -xffd`
 3. `git pull`
 
-### 4. Deleting the latest commit
+### 4. Deleting the latest commit <a name="4"></a> [UP↑](#tof)
 If you want do this, put this command into terminal: `git reset --soft HEAD~1`
 
 **It's very important!** After this you must add new changes, commit them and push with force flag. Without this you'll have a problem from *problem number 2*.
 
-### 5. Merging two git repo into one
+### 5. Merging two git repo into one <a name="5"></a> [UP↑](#tof)
 Based on [this](#https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/) article (date of access: 24.06.2021).
 
 Very important info. You will keep all history of commits, but unfortunately you'll lose the number of daily contributions from the table on your github profile page, I mean: <br/>
@@ -113,3 +126,10 @@ Merge repos, but before find files, which have the same name e.g. README.md in *
 `mv old_b/* ./`
 2. `git add .`
 3. `git commit -m "Extract old_a and old_b to a shared folder"`
+
+### 6. How to display the list of branches <a name="6"></a> [UP↑](#tof)
+### 7. How to change a branch <a name="7"></a> [UP↑](#tof)
+### 8. How to merge a branch <a name="8"></a> [UP↑](#tof)
+### 9. How to print out the history of commits with branches <a name="9"></a> [UP↑](#tof)
+### 10. The meaning of the commit options <a name="10"></a> [UP↑](#tof)
+#### -m <a name="10.1"></a>
