@@ -1,5 +1,5 @@
 ## Repo description
-I'll post here all (and especially the most popular) problems, that I have when I'm using the github.
+I'll post here all (and especially the most popular) problems or tips, that I have when I'm using the git.
 
 ------------
 
@@ -15,6 +15,7 @@ I'll post here all (and especially the most popular) problems, that I have when 
 9. [How to print out the history of commits with branches](#9)
 10. [The meaning of the commit options](#10)
     1. [-m](#10.1) 
+11. [How to name commits](#11)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -69,7 +70,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 1. `git pull origin main:dev`
 2. `git push -u origin main`
 
-Similar problem on stackOverflow [09.12.2020]: https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have 
+Similar problem on the stack overflow [09.12.2020]: https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have 
 ### 3. Downloading the latest version of commit <a name="2"></a> [UP↑](#tof)
 Copy it to the terminal
 1. `git reset --hard HEAD`
@@ -128,8 +129,28 @@ Merge repos, but before find files, which have the same name e.g. README.md in *
 3. `git commit -m "Extract old_a and old_b to a shared folder"`
 
 ### 6. How to display the list of branches <a name="6"></a> [UP↑](#tof)
+
+See what branch you're on: `git status` <br/>
+To see local branches: `git branch` <br/>
+To see remote branches: `git branch -r` <br/>
+To see all local and remote branches: `git branch -a` <br/>
+
+
+
 ### 7. How to change a branch <a name="7"></a> [UP↑](#tof)
 ### 8. How to merge a branch <a name="8"></a> [UP↑](#tof)
 ### 9. How to print out the history of commits with branches <a name="9"></a> [UP↑](#tof)
 ### 10. The meaning of the commit options <a name="10"></a> [UP↑](#tof)
 #### -m <a name="10.1"></a>
+### 11. How to name commits <a name="11"></a> [UP↑](#tof)
+
+
+
+
+
+
+
+
+
+
+
