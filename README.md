@@ -13,9 +13,10 @@ I'll post here all (and especially the most popular) problems or tips, that I ha
 7. [How to change a branch](#7)
 8. [How to merge a branch](#8)
 9. [How to print out the history of commits with branches](#9)
-10. [The meaning of the commit options](#10)
-    1. [-m](#10.1) 
-11. [How to name commits](#11)
+10. [How to delete branch](#10)
+11. [The meaning of the commit options](#11)
+    1. [-m](#11.1) 
+12. [How to name commits](#12)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -135,14 +136,16 @@ To see local branches: `git branch` <br/>
 To see remote branches: `git branch -r` <br/>
 To see all local and remote branches: `git branch -a` <br/>
 
-
-
 ### 7. How to change a branch <a name="7"></a> [UP↑](#tof)
+
+
+
 ### 8. How to merge a branch <a name="8"></a> [UP↑](#tof)
 ### 9. How to print out the history of commits with branches <a name="9"></a> [UP↑](#tof)
-### 10. The meaning of the commit options <a name="10"></a> [UP↑](#tof)
-#### -m <a name="10.1"></a>
-### 11. How to name commits <a name="11"></a> [UP↑](#tof)
+### 1o. How to delete branch <a name="10"></a> [UP↑](#tof)
+### 11. The meaning of the commit options <a name="11"></a> [UP↑](#tof)
+#### -m <a name="11.1"></a>
+### 12. How to name commits <a name="12"></a> [UP↑](#tof)
 
 
 
