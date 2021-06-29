@@ -17,6 +17,7 @@ I'll post here all (and especially the most popular) problems or tips, that I ha
 11. [The meaning of the commit options](#11)
     1. [-m](#11.1) 
 12. [How to name commits](#12)
+13. [Why can't I see my commits](#13)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -146,7 +147,13 @@ To see all local and remote branches: `git branch -a` <br/>
 ### 11. The meaning of the commit options <a name="11"></a> [UP↑](#tof)
 #### -m <a name="11.1"></a>
 ### 12. How to name commits <a name="12"></a> [UP↑](#tof)
-
+### 13. Why can't I see my commits <a name="13></a> [UP↑](#tof)
+Can be a several possibilities, in my case it was fact that email address used for the commits is associated with different github account. <br/>
+To change this just change project email to your email from github. To do this: <br/>
+1. Check the project owner (email): <br/>
+`git config --global user.email` <br/>
+If is different, then:
+2. `git config --global user.email "YOUR_GITHUB_EMAIL_ADDRESS"`  
 
 
 
