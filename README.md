@@ -312,6 +312,11 @@ and turns it back into a chess game.
 Commit messages with bodies are not so easy to write with the `-m` option. You’re
 better off writing the message in a proper text editor.
 
+2. Limit the subject line to 50 characters. <br/>
+*Tip: If you’re having a hard time summarizing, you might be committing too
+many changes at once.* It's make sense :D <br/>
+So shoot for 50 characters, but consider 72 the hard limit.
+
 
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
 Can be a several possibilities, in my case it was fact that email address used 
