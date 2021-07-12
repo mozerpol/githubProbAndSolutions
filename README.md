@@ -1,4 +1,4 @@
-## Repo description
+# Repo description
 I'll post here all (and especially the most popular) problems or tips, that I 
 have when I'm using the git.
 
@@ -53,8 +53,11 @@ and from drop-down list copy adress your repo.
 13. `git push -u origin main`
 
 ### 2. "*error: failed to push some refs to*" <a name="2"></a> [UP↑](#tof)
-**Short desc:** When I try to upload updates to the repository after a successful commit. <br/>
-**Possible cause:** Changing the same repository in two different places (e.g. on the computer and via github.com) without subsequent synchronization. After that an attempt to upload a latest commit from computer to the github.
+**Short desc:** When I try to upload updates to the repository after a successful
+commit. <br/>
+**Possible cause:** Changing the same repository in two different places 
+(e.g. on the computer and via github.com) without subsequent synchronization. 
+After that an attempt to upload a latest commit from computer to the github.
 
 **Problem:**
 ```shell
@@ -90,12 +93,17 @@ Copy it to the terminal
 ### 4. Deleting the latest commit <a name="4"></a> [UP↑](#tof)
 If you want do this, put this command into terminal: `git reset --soft HEAD~1`
 
-**It's very important!** After this you must add new changes, commit them and push with force flag. Without this you'll have a problem from *problem number 2*.
+**It's very important!** After this you must add new changes, commit them and 
+push with force flag. Without this you'll have a problem from *problem number 2*.
 
 ### 5. Merging two git repo into one <a name="5"></a> [UP↑](#tof)
-Based on [this](https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/) article (date of access: 24.06.2021).
+Based on
+[this](https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/) 
+article (date of access: 24.06.2021).
 
-Very important info. You will keep all history of commits, but unfortunately you'll lose the number of daily contributions from the table on your github profile page, I mean: <br/>
+Very important info. You will keep all history of commits, but unfortunately 
+you'll lose the number of daily contributions from the table on your github 
+profile page, I mean: <br/>
 ![obraz](https://user-images.githubusercontent.com/43972902/123415620-d7211b00-d5b5-11eb-9b38-f15687b23ebe.png)
 
 Step by step:
@@ -108,10 +116,13 @@ Step by step:
 4. Add a remote for and fetch the first old repo. <br/>
 `git remote add -f old_a <link to the first project>`, example: <br/>
 `git remote add -f old_a https://github.com/mozerpol/learningVerilog.git` <br/>
-But very important info, you must be careful, you can't have two the same files in old and new repo like "README.md", in this case will be an error.
+But very important info, you must be careful, you can't have two the same files 
+in old and new repo like "README.md", in this case will be an error.
 5. `git merge old_a/main --allow-unrelated-histories` <br/>
-Why we must add [--allow-unrelated-histories](#https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories-on-rebase)? <br/>
-After execution this instruction (in my case) will open nano editor to add comment, you can just close this without adding sth.
+Why we must add
+[--allow-unrelated-histories](#https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories-on-rebase)? <br/>
+After execution this instruction (in my case) will open nano editor to add 
+comment, you can just close this without adding sth.
 6. Delete first unnecessary commit and commit changes. <br/>
 `rm deleteme.txt` <br/>
 `git commit -m "Clean up initial file"`
@@ -234,7 +245,8 @@ number of deletions and insertions: `git log --stat`
 | %ce | Committer email |
 | %cd | Committer date |
 | %cr | Committer date, relative |
-| %s | Subject | <br/>
+| %s | Subject |
+
 But be careful, between *format:* and *"* there is no space. 
 
 4. Add a little ASCII graph showing branch and merge history: <br/>
@@ -265,7 +277,8 @@ the Git repository is aware of will be committed.
 The `--amend` option allows you to change your last commit. Example: <br/>
 `git commit --amend -m "An updated commit message"` and after this we have: <br/>
 ```shell
-mozerpol@mozerpol-pc:~/Documents/github/githubProbAndSolutions$ git log --pretty=format:"%h, %s"                                                                                             
+mozerpol@mozerpol-pc:~/Documents/github/githubProbAndSolutions$ git log --pretty=format:"%h, %s"
+
 2c3cde4, an updated commit message
 3b1c694, Desc printing out history
 afac21f, Desc merge
