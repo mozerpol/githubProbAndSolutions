@@ -155,12 +155,10 @@ To change this just change project email to your email from github. To do this: 
 If is different, then:
 2. `git config --global user.email "YOUR_GITHUB_EMAIL_ADDRESS"`  
 
-
-
-
-
-
-
-
+### 14. "*git after tab does not have prompts*"
+After *git* installation I had a problem with git propter. Perhaps problem was
+with *bash*. I repaired it just: `sudo apt install git-core bash-completion`. <br/>
+Problem on described on StackOverflow: 
+https://stackoverflow.com/questions/12399002/how-to-configure-git-bash-command-line-completion
 
 
