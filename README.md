@@ -193,10 +193,19 @@ git pull                      # Updates remote tracking branch "origin/myNewBran
 ```
 
 ### 7. How to change a branch <a name="7"></a> [UP↑](#tof)
+`git checkout <existing_branch>`
 
-
+If the destination branch does not exist: <br/>
+`git checkout -b <new_branch>`
 
 ### 8. How to merge a branch <a name="8"></a> [UP↑](#tof)
+So... If we want merge *other_branch* to *master* we must do: <br/>
+1. Checkout on *master* branch, by `git checkout master`
+2. Then `git merge other_branch`
+
+Now *master* and *other_branch* are the same, so we can delete *other_branch*: <br/>
+`git branch -d other_branch`
+
 ### 9. How to print out the history of commits with branches <a name="9"></a> [UP↑](#tof)
 ### 1o. How to delete branch <a name="10"></a> [UP↑](#tof)
 ### 11. The meaning of the commit options <a name="11"></a> [UP↑](#tof)
@@ -214,7 +223,8 @@ If is different, then:
 ### 14. "*git after tab does not have prompts*"  <a name="14"></a> [UP↑](#tof)
 After *git* installation I had a problem with git propter. Perhaps problem was
 with *bash*. I repaired it just: `sudo apt install git-core bash-completion`. <br/>
-Problem on described on StackOverflow: 
+Problem on described on StackOverflow: <br/>
 https://stackoverflow.com/questions/12399002/how-to-configure-git-bash-command-line-completion
+
 
 
