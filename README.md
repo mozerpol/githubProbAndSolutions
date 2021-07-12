@@ -324,12 +324,45 @@ This is as simple as it sounds. Begin all subject lines with a capital letter.
 Wrong: *Open the pod bay doors.* <br/>
 Correct: *Open the pod bay doors*
 
-5. Use the imperative mood in the subject line <br/>
+5. Use the imperative mood in the subject line. <br/>
 Imperative mood means: <br/>
 - Clean your room
 - Close the door
 - Take out the trash
 
+6. Wrap the body at 72 characters. <br/>
+The recommendation is to do this at 72 characters, so that Git has plenty of 
+room to indent text while still keeping everything under 80 characters overall.
+
+7. Use the body to explain what and why vs. how. <br/>
+[This](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6) 
+commit from Bitcoin Core is a great example of explaining what changed and 
+why: <br/>
+```
+commit eb0b56b19017ab5c16c745e6da39c53126924ed6
+Author: Pieter Wuille <pieter.wuille@gmail.com>
+Date:   Fri Aug 1 22:57:55 2014 +0200
+
+   Simplify serialize.h's exception handling
+
+   Remove the 'state' and 'exceptmask' from serialize.h's stream
+   implementations, as well as related methods.
+
+   As exceptmask always included 'failbit', and setstate was always
+   called with bits = failbit, all it did was immediately raise an
+   exception. Get rid of those variables, and replace the setstate
+   with direct exception throwing (which also removes some dead
+   code).
+
+   As a result, good() is never reached after a failure (there are
+   only 2 calls, one of which is in tests), and can just be replaced
+   by !eof().
+
+   fail(), clear(n) and exceptions() are just never called. Delete
+   them.
+```
+Of course in most cases, you can leave out details about how a change has been
+made. 
 
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
 Can be a several possibilities, in my case it was fact that email address used 
