@@ -324,6 +324,13 @@ This is as simple as it sounds. Begin all subject lines with a capital letter.
 Wrong: *Open the pod bay doors.* <br/>
 Correct: *Open the pod bay doors*
 
+5. Use the imperative mood in the subject line <br/>
+Imperative mood means: <br/>
+- Clean your room
+- Close the door
+- Take out the trash
+
+
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
 Can be a several possibilities, in my case it was fact that email address used 
 for the commits is associated with different github account. <br/>
