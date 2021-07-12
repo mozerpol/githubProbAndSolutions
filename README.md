@@ -364,6 +364,8 @@ Date:   Fri Aug 1 22:57:55 2014 +0200
 Of course in most cases, you can leave out details about how a change has been
 made. 
 
+Based on: https://chris.beams.io/posts/git-commit/
+
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
 Can be a several possibilities, in my case it was fact that email address used 
 for the commits is associated with different github account. <br/>
