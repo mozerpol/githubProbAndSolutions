@@ -18,7 +18,9 @@ have when I'm using the git.
 9. [How to print out the history of commits with branches](#9)
 10. [How to delete branch](#10)
 11. [The meaning of the commit options](#11)
-    1. [-m](#11.1) 
+    1. -m
+	2. -a
+	3. -amend
 12. [How to name commits](#12)
 13. [Why can't I see my commits](#13)
 14. [git after tab does not have prompts](#14)
@@ -214,6 +216,7 @@ checksum, the author’s name and email, the date written, and the commit messag
 number of deletions and insertions: `git log --stat`
 3. Commits in one line with useful info: 
 `git log --pretty=format:"%h - %an, %ar : %s"`, specifiers: <br/>
+
 | Specifier  | Description of output |
 |:--:|:--:|
 | %H | Commit hash |
@@ -236,15 +239,31 @@ But be careful, between *format:* and *"* there is no space.
 4. Add a little ASCII graph showing branch and merge history: 
 `git log --pretty=format:"%h - %an, %ar : %s" --graph`
 
+5. Limiting log output: `git log --since=2.weeks`
+
 
 Nice link about
 [this](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History).
 
-### 1o. How to delete branch <a name="10"></a> [UP↑](#tof)
+### 10. How to delete branch <a name="10"></a> [UP↑](#tof)
 `git branch -d other_branch`
 
 ### 11. The meaning of the commit options <a name="11"></a> [UP↑](#tof)
-#### -m <a name="11.1"></a>
+The git `commit` command will save all staged changes, along with a brief 
+description from the user, in a *commit* to the local repository.
+
+#### -m
+It's required message to commit. If the `-m` is not included with the `git commit`
+command, you will be prompted to add a message in your default text editor.
+
+#### -a
+This option automatically stages all modified files to be committed. If new 
+files are added the `-a` option will not stage those new files. Only files that 
+the Git repository is aware of will be committed.
+
+#### -amend
+The `--amend` option allows you to change your last commit.
+
 ### 12. How to name commits <a name="12"></a> [UP↑](#tof)
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
 Can be a several possibilities, in my case it was fact that email address used 
@@ -253,7 +272,7 @@ To change this just change project email to your email from github. To do this: 
 1. Check the project owner (email): <br/>
 `git config --global user.email` <br/>
 If is different, then:
-2. `git config --global user.email "YOUR_GITHUB_EMAIL_ADDRESS"`  
+2. `git config --global user.email "YOUR_GITHUB_EMAIL_ADDRESS"`
 
 ### 14. "*git after tab does not have prompts*"  <a name="14"></a> [UP↑](#tof)
 After *git* installation I had a problem with git propter. Perhaps problem was
