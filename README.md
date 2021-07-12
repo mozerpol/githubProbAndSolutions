@@ -1,5 +1,6 @@
 ## Repo description
-I'll post here all (and especially the most popular) problems or tips, that I have when I'm using the git.
+I'll post here all (and especially the most popular) problems or tips, that I 
+have when I'm using the git.
 
 ------------
 
@@ -10,6 +11,8 @@ I'll post here all (and especially the most popular) problems or tips, that I ha
 4. [Deleting the latest commit](#4)
 5. [Merging two git repo into one](#5)
 6. [How to display the list of branches](#6)
+	1. Differences between local branch and remote branch.
+	2. Differences between remote tracking branch and local tracking branch.
 7. [How to change a branch](#7)
 8. [How to merge a branch](#8)
 9. [How to print out the history of commits with branches](#9)
@@ -18,6 +21,7 @@ I'll post here all (and especially the most popular) problems or tips, that I ha
     1. [-m](#11.1) 
 12. [How to name commits](#12)
 13. [Why can't I see my commits](#13)
+14. [git after tab does not have prompts](#14)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -27,7 +31,8 @@ We have two ways.
 2. Click `New` and next fill all informations
 3. Click Add README.md and go to next. It'll create branch main in your repo
 4. Create folder on your computer and go there
-5. In your repository (on github) you can find green button `Code`, click on it and from drop-down list copy adress your repo.
+5. In your repository (on github) you can find green button `Code`, click on it
+and from drop-down list copy adress your repo.
 6. `git clone` and adress to your repo
 
 #### Second:
@@ -123,7 +128,9 @@ Do the same thing for old_b
 5. `git add .`
 6. `git commit -m "Move old_b files into subdir"`
 
-Merge repos, but before find files, which have the same name e.g. README.md in *old_a* and *old_b* folder. It's not allowed, you must get rid of this conflict and commit changes.
+Merge repos, but before find files, which have the same name e.g. README.md in 
+*old_a* and *old_b* folder. It's not allowed, you must get rid of this conflict 
+and commit changes.
 1. Extract *old_a* and *old_b* to a shared folder <br/>
 `mv old_a/* ./` <br/>
 `mv old_b/* ./`
@@ -137,6 +144,54 @@ To see local branches: `git branch` <br/>
 To see remote branches: `git branch -r` <br/>
 To see all local and remote branches: `git branch -a` <br/>
 
+#### Differences between local branch and remote branch.
+A local branch is a branch that only you (the local user) can see. It exists 
+only on your local machine.
+```
+git branch myNewBranch        # Create local branch named "myNewBranch"
+```
+
+A remote branch is a branch on a remote location (in most cases *origin*). <br/>
+You can push the newly created local branch *myNewBranch* to *origin*.
+Now other users can track it.
+```
+git push -u origin myNewBranch   # Pushes your newly created local branch "myNewBranch"
+                                 # to the remote "origin".
+                                 # So now a new branch named "myNewBranch" is
+                                 # created on the remote machine named "origin"
+```
+
+#### Differences between remote tracking branch and local tracking branch.
+A remote tracking branch is a local copy of a remote branch. When *myNewBranch*
+is pushed to *origin* using the command above, a remote tracking branch named 
+*origin/myNewBranch* is created on your machine. This remote tracking branch 
+tracks the remote branch *myNewBranch* on *origin*. You can update your remote 
+tracking branch to be in sync with the remote branch using `git fetch` or 
+`git pull`.
+```
+git pull origin myNewBranch      # Pulls new commits from branch "myNewBranch" 
+                                 # on remote "origin" into remote tracking
+                                 # branch on your machine "origin/myNewBranch".
+                                 # Here "origin/myNewBranch" is your copy of
+                                 # "myNewBranch" on "origin"
+```
+
+A local tracking branch is a local branch that is tracking another branch. 
+This is so that you can push/pull commits to/from the other branch. Local
+tracking branches in most cases track a remote tracking branch. When you push a
+local branch to *origin* using the `git push` command with a `-u` option (as shown 
+above), you set up the local branch *myNewBranch* to track the remote tracking 
+branch *origin/myNewBranch*. This is needed to use `git push` and `git pull` 
+without specifying an upstream to push to or pull from.
+```
+git checkout myNewBranch      # Switch to myNewBranch
+git pull                      # Updates remote tracking branch "origin/myNewBranch"
+                              # to be in sync with the remote branch "myNewBranch"
+                              # on "origin".
+                              # Pulls these new commits from "origin/myNewBranch"
+                              # to local branch "myNewBranch which you just switched to.
+```
+
 ### 7. How to change a branch <a name="7"></a> [UP↑](#tof)
 
 
@@ -147,15 +202,16 @@ To see all local and remote branches: `git branch -a` <br/>
 ### 11. The meaning of the commit options <a name="11"></a> [UP↑](#tof)
 #### -m <a name="11.1"></a>
 ### 12. How to name commits <a name="12"></a> [UP↑](#tof)
-### 13. Why can't I see my commits <a name="13></a> [UP↑](#tof)
-Can be a several possibilities, in my case it was fact that email address used for the commits is associated with different github account. <br/>
+### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
+Can be a several possibilities, in my case it was fact that email address used 
+for the commits is associated with different github account. <br/>
 To change this just change project email to your email from github. To do this: <br/>
 1. Check the project owner (email): <br/>
 `git config --global user.email` <br/>
 If is different, then:
 2. `git config --global user.email "YOUR_GITHUB_EMAIL_ADDRESS"`  
 
-### 14. "*git after tab does not have prompts*"
+### 14. "*git after tab does not have prompts*"  <a name="14"></a> [UP↑](#tof)
 After *git* installation I had a problem with git propter. Perhaps problem was
 with *bash*. I repaired it just: `sudo apt install git-core bash-completion`. <br/>
 Problem on described on StackOverflow: 
