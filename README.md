@@ -207,7 +207,42 @@ Now *master* and *other_branch* are the same, so we can delete *other_branch*: <
 `git branch -d other_branch`
 
 ### 9. How to print out the history of commits with branches <a name="9"></a> [UP↑](#tof)
+There is a several ways, the best for me: <br/>
+1. Default history, with no arguments: `git log`. Each commit is with SHA-1 
+checksum, the author’s name and email, the date written, and the commit message.
+2. Some abbreviated stats for each commit, such as how many files were changed,
+number of deletions and insertions: `git log --stat`
+3. Commits in one line with useful info: 
+`git log --pretty=format:"%h - %an, %ar : %s"`, specifiers: <br/>
+| Specifier  | Description of output |
+|:--:|:--:|
+| %H | Commit hash |
+| %h | Abbreviated commit hash |
+| %T | Tree hash |
+| %t | Abbreviated tree hash |
+| %P | Parent hashes |
+| %p |Abbreviated parent hashes |
+| %an | Author name |
+| %ae | Author email |
+| %ad Author date (format respects the --date=option) |
+| %ar | Author date, relative |
+| %cn | Committer name |
+| %ce | Committer email |
+| %cd | Committer date |
+| %cr | Committer date, relative |
+| %s | Subject | <br/>
+But be careful, between *format:* and *"* there is no space. 
+
+4. Add a little ASCII graph showing branch and merge history: 
+`git log --pretty=format:"%h - %an, %ar : %s" --graph`
+
+
+Nice link about
+[this](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History).
+
 ### 1o. How to delete branch <a name="10"></a> [UP↑](#tof)
+`git branch -d other_branch`
+
 ### 11. The meaning of the commit options <a name="11"></a> [UP↑](#tof)
 #### -m <a name="11.1"></a>
 ### 12. How to name commits <a name="12"></a> [UP↑](#tof)
