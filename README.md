@@ -317,6 +317,9 @@ better off writing the message in a proper text editor.
 many changes at once.* It's make sense :D <br/>
 So shoot for 50 characters, but consider 72 the hard limit.
 
+3. Capitalize the subject line
+This is as simple as it sounds. Begin all subject lines with a capital letter.
+
 
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
 Can be a several possibilities, in my case it was fact that email address used 
