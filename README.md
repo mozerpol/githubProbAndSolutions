@@ -79,8 +79,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 1. `git pull origin main:dev`
 2. `git push -u origin main`
 
-Similar problem on the stack overflow [09.12.2020]: https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have 
-### 3. Downloading the latest version of commit <a name="2"></a> [UP↑](#tof)
+Similar problem on the stack overflow [date of access: 09.12.2020]: <br/>
+https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have 
+### 3. Downloading the latest version of commit <a name="3"></a> [UP↑](#tof)
 Copy it to the terminal
 1. `git reset --hard HEAD`
 2. `git clean -xffd`
@@ -92,7 +93,7 @@ If you want do this, put this command into terminal: `git reset --soft HEAD~1`
 **It's very important!** After this you must add new changes, commit them and push with force flag. Without this you'll have a problem from *problem number 2*.
 
 ### 5. Merging two git repo into one <a name="5"></a> [UP↑](#tof)
-Based on [this](#https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/) article (date of access: 24.06.2021).
+Based on [this](https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/) article (date of access: 24.06.2021).
 
 Very important info. You will keep all history of commits, but unfortunately you'll lose the number of daily contributions from the table on your github profile page, I mean: <br/>
 ![obraz](https://user-images.githubusercontent.com/43972902/123415620-d7211b00-d5b5-11eb-9b38-f15687b23ebe.png)
@@ -214,7 +215,7 @@ There is a several ways, the best for me: <br/>
 checksum, the author’s name and email, the date written, and the commit message.
 2. Some abbreviated stats for each commit, such as how many files were changed,
 number of deletions and insertions: `git log --stat`
-3. Commits in one line with useful info: 
+3. Commits in one line with useful info: <br/>
 `git log --pretty=format:"%h - %an, %ar : %s"`, specifiers: <br/>
 
 | Specifier  | Description of output |
@@ -227,7 +228,7 @@ number of deletions and insertions: `git log --stat`
 | %p |Abbreviated parent hashes |
 | %an | Author name |
 | %ae | Author email |
-| %ad Author date (format respects the --date=option) |
+| %ad | Author date (format respects the --date=option) |
 | %ar | Author date, relative |
 | %cn | Committer name |
 | %ce | Committer email |
@@ -236,11 +237,10 @@ number of deletions and insertions: `git log --stat`
 | %s | Subject | <br/>
 But be careful, between *format:* and *"* there is no space. 
 
-4. Add a little ASCII graph showing branch and merge history: 
+4. Add a little ASCII graph showing branch and merge history: <br/>
 `git log --pretty=format:"%h - %an, %ar : %s" --graph`
 
 5. Limiting log output: `git log --since=2.weeks`
-
 
 Nice link about
 [this](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History).
@@ -262,9 +262,25 @@ files are added the `-a` option will not stage those new files. Only files that
 the Git repository is aware of will be committed.
 
 #### -amend
-The `--amend` option allows you to change your last commit.
+The `--amend` option allows you to change your last commit. Example: <br/>
+`git commit --amend -m "An updated commit message"` and after this we have: <br/>
+```shell
+mozerpol@mozerpol-pc:~/Documents/github/githubProbAndSolutions$ git log --pretty=format:"%h, %s"                                                                                             
+2c3cde4, an updated commit message
+3b1c694, Desc printing out history
+afac21f, Desc merge
+60c1a42, Add about remote and local branches
+8ee6914, Add a problem with git prompts
+ac678ef, Add problem with project owner
+3b28d87, Add small changes
+4c43ff3, Add how to display the list of branches
+73cc87b, Add table of contents
+bb70703, Desc how to merging two git repo into one
+```
 
 ### 12. How to name commits <a name="12"></a> [UP↑](#tof)
+
+
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
 Can be a several possibilities, in my case it was fact that email address used 
 for the commits is associated with different github account. <br/>
