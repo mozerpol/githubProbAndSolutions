@@ -292,6 +292,25 @@ bb70703, Desc how to merging two git repo into one
 ```
 
 ### 12. How to name commits <a name="12"></a> [UP↑](#tof)
+The seven rules of a great Git commit message: <br/>
+1. begin the commit message with a single short (less than 50 character) line 
+summarizing the change. The first line in a commit message is treated as the 
+commit title. Sometimes a single line is fine (not every commit requires both 
+a subject and a body.), especially when the change is so simple that no further 
+context is necessary. Example of short (one line) commit: <br/>
+```
+Fix typo in introduction to user guide
+```
+Example of commit which need a bit of explanation and context: <br/>
+```
+Derezz the master control program
+
+MCP turned out to be evil and had become intent on world domination.
+This commit throws Tron's disc into MCP (causing its deresolution)
+and turns it back into a chess game.
+```
+Commit messages with bodies are not so easy to write with the `-m` option. You’re
+better off writing the message in a proper text editor.
 
 
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
