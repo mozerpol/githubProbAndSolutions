@@ -24,6 +24,7 @@ have when I'm using the git.
 12. [How to name commits](#12)
 13. [Why can't I see my commits](#13)
 14. [git after tab does not have prompts](#14)
+15. [How to change default editor for commits](#15)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -161,14 +162,14 @@ To see all local and remote branches: `git branch -a` <br/>
 #### Differences between local branch and remote branch.
 A local branch is a branch that only you (the local user) can see. It exists 
 only on your local machine.
-```
+```shell
 git branch myNewBranch        # Create local branch named "myNewBranch"
 ```
 
 A remote branch is a branch on a remote location (in most cases *origin*). <br/>
 You can push the newly created local branch *myNewBranch* to *origin*.
 Now other users can track it.
-```
+```shell
 git push -u origin myNewBranch   # Pushes your newly created local branch "myNewBranch"
                                  # to the remote "origin".
                                  # So now a new branch named "myNewBranch" is
@@ -182,7 +183,7 @@ is pushed to *origin* using the command above, a remote tracking branch named
 tracks the remote branch *myNewBranch* on *origin*. You can update your remote 
 tracking branch to be in sync with the remote branch using `git fetch` or 
 `git pull`.
-```
+```shell
 git pull origin myNewBranch      # Pulls new commits from branch "myNewBranch" 
                                  # on remote "origin" into remote tracking
                                  # branch on your machine "origin/myNewBranch".
@@ -197,7 +198,7 @@ local branch to *origin* using the `git push` command with a `-u` option (as sho
 above), you set up the local branch *myNewBranch* to track the remote tracking 
 branch *origin/myNewBranch*. This is needed to use `git push` and `git pull` 
 without specifying an upstream to push to or pull from.
-```
+```shell
 git checkout myNewBranch      # Switch to myNewBranch
 git pull                      # Updates remote tracking branch "origin/myNewBranch"
                               # to be in sync with the remote branch "myNewBranch"
@@ -338,7 +339,7 @@ room to indent text while still keeping everything under 80 characters overall.
 [This](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6) 
 commit from Bitcoin Core is a great example of explaining what changed and 
 why: <br/>
-```
+```shell
 commit eb0b56b19017ab5c16c745e6da39c53126924ed6
 Author: Pieter Wuille <pieter.wuille@gmail.com>
 Date:   Fri Aug 1 22:57:55 2014 +0200
@@ -381,5 +382,10 @@ with *bash*. I repaired it just: `sudo apt install git-core bash-completion`. <b
 Problem on described on StackOverflow: <br/>
 https://stackoverflow.com/questions/12399002/how-to-configure-git-bash-command-line-completion
 
-
+### 15. How to change default editor for commits <a name="14"></a> [UP↑](#tof)
+Open file *$HOME/.gitconfig* and add line:
+```
+[core]
+	editor = nvim
+```
 
