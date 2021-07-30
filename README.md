@@ -25,6 +25,7 @@ have when I'm using the git.
 13. [Why can't I see my commits](#13)
 14. [git after tab does not have prompts](#14)
 15. [How to change default editor for commits](#15)
+16. [Commit template](#16)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -382,10 +383,48 @@ with *bash*. I repaired it just: `sudo apt install git-core bash-completion`. <b
 Problem on described on StackOverflow: <br/>
 https://stackoverflow.com/questions/12399002/how-to-configure-git-bash-command-line-completion
 
-### 15. How to change default editor for commits <a name="14"></a> [UP↑](#tof)
+### 15. How to change default editor for commits <a name="15"></a> [UP↑](#tof)
 Open file *$HOME/.gitconfig* and add line:
 ```
 [core]
 	editor = nvim
 ```
 
+### 16. How to change commit template <a name="16"></a> [UP↑](#tof)
+Commit template is prompt message when you commit. To change this, just create
+file *.gitmessage.txt* inside your home dir. After this open file 
+*$HOME/.gitconfig* and add line:
+```
+[commit]                                                                        
+	template = ~/.gitmessage.txt    
+```
+
+To *.gitmessage.txt* you can add whatever, but I added: 
+```shell
+
+
+# Title: Summary, start upper case, don't end with a period or dot No more than
+# 50 chars. Use the imperative mood as "Clean your room" or "Close the door".
+
+# Blank line between title and body.
+
+# Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).
+# Wrap at 72 chars.
+
+
+# At the end: Include Co-authored-by for all contributors. 
+# Include at least one empty line before it. Format: 
+# Co-authored-by: name <user@users.noreply.github.com>
+#
+# 1. Limit the subject line to 50 characters
+# 2. Separate subject from body with a blank line
+# 3. Capitalize the subject line
+# 4. Do not end the subject line with a period
+# 5. Use the imperative mood in the subject line
+# 6. Wrap the body at 72 characters
+# 7. Use the body to explain what and why vs. how
+```
+
+Notice that the first two lines are empty, it's for convinence. <br/>
+How it looks: <br/>
+![image](https://user-images.githubusercontent.com/43972902/127651846-75e2ef21-32a0-4e33-af01-a50a79e5be7c.png)
