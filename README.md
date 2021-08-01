@@ -26,7 +26,7 @@ have when I'm using the git.
 14. [git after tab does not have prompts](#14)
 15. [How to change default editor for commits](#15)
 16. [Commit template](#16)
-
+17. [What is a pull request?](#17)
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
 
@@ -428,3 +428,16 @@ To *.gitmessage.txt* you can add whatever, but I added:
 Notice that the first two lines are empty, it's for convinence. <br/>
 How it looks: <br/>
 ![image](https://user-images.githubusercontent.com/43972902/127651846-75e2ef21-32a0-4e33-af01-a50a79e5be7c.png)
+
+### 17. What is a pull request? <a name="17"></a> [UP↑](#tof)
+When you open a pull request, you’re proposing your changes and requesting that
+someone review and pull in your contribution and merge them into their branch. 
+Pull requests show *diffs* (*differences*), of the content from both branches. 
+
+Why is a git *pull request* not called a *push request*? <br/>
+When you send a *pull request*, you're asking (requesting) the official repo
+owner to pull some changes from your own repo. Hence "pull request". <br/>
+By default a safety net is set so no one can push to your repo. You can set
+others as a collaborator, then they can push. <br/>
+Question on
+[stackoverflow](https://stackoverflow.com/questions/21657430/why-is-a-git-pull-request-not-called-a-push-request). 
