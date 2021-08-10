@@ -27,6 +27,9 @@ have when I'm using the git.
 15. [How to change default editor for commits](#15)
 16. [Commit template](#16)
 17. [What is a pull request?](#17)
+18. [Updates were rejected because the remote contains work that you do not have
+locally](#18) 
+
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
 
@@ -441,3 +444,84 @@ By default a safety net is set so no one can push to your repo. You can set
 others as a collaborator, then they can push. <br/>
 Question on
 [stackoverflow](https://stackoverflow.com/questions/21657430/why-is-a-git-pull-request-not-called-a-push-request). 
+
+### 17. Updates were rejected because the remote contains work that you do not have locally <a name="17"></a> [UP↑](#tof)
+
+The error occurs when for example I changed any file on the github website, push
+this changes and next I come back to my local repo and without synchro this changes
+I want push a new commit. 
+
+Error log: <br/>
+```shell
+mozerpol@mozerpol-pc:/learningRISC-V/implementation$ git push -u origin main 
+
+Username for 'https://github.com': mozerpol
+Password for 'https://mozerpol@github.com': 
+To https://github.com/mozerpol/learningRISC-V
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/mozerpol/learningRISC-V'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+What to do:
+1. Very important line from my log is fifth line: <br/>
+`! [rejected]        main -> main (fetch first)` <br/>
+2. `git pull <remote> from:where`, <br/> in my case:
+```shell
+mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git pull origin main:main 
+
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+From https://github.com/mozerpol/learningRISC-V
+ ! [rejected]        main       -> main  (non-fast-forward)
+   40f9349..aee651b  main       -> origin/main
+```
+3. Git status: 
+```shell
+mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git status 
+
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 3 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working tree clean
+```
+4. Pull changes:
+```shell
+mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git pull origin main 
+
+From https://github.com/mozerpol/learningRISC-V
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ README.md | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+```
+
+5. Push changes: 
+```shell
+mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git push -u origin main 
+
+Username for 'https://github.com': mozerpol
+Password for 'https://mozerpol@github.com': 
+Enumerating objects: 36, done.
+Counting objects: 100% (29/29), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (20/20), 3.14 KiB | 1.57 MiB/s, done.
+Total 20 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 4 local objects.
+To https://github.com/mozerpol/learningRISC-V
+   aee651b..2fbf3db  main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+```
+
+This problem described on 
+[StackOverflow](https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have). 
