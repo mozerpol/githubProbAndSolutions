@@ -434,6 +434,17 @@ Notice that the first two lines are empty, it's for convinence. <br/>
 How it looks: <br/>
 ![image](https://user-images.githubusercontent.com/43972902/127651846-75e2ef21-32a0-4e33-af01-a50a79e5be7c.png)
 
+My *.gitconfig* file: <br/>
+```
+[user]
+	name = mozerpol
+	email = krzmozer@student.pg.edu.pl
+[core]
+	editor = nvim
+[commit]                                                                        
+	template = ~/.gitmessage.txt
+```
+
 ### 17. What is a pull request? <a name="17"></a> [UP↑](#tof)
 When you open a pull request, you’re proposing your changes and requesting that
 someone review and pull in your contribution and merge them into their branch. 
