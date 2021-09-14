@@ -29,6 +29,7 @@ have when I'm using the git.
 17. [What is a pull request?](#17)
 18. [Updates were rejected because the remote contains work that you do not have
 locally](#18) 
+19. [](#19)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -445,7 +446,7 @@ others as a collaborator, then they can push. <br/>
 Question on
 [stackoverflow](https://stackoverflow.com/questions/21657430/why-is-a-git-pull-request-not-called-a-push-request). 
 
-### 17. Updates were rejected because the remote contains work that you do not have locally <a name="17"></a> [UP↑](#tof)
+### 18. Updates were rejected because the remote contains work that you do not have locally <a name="18"></a> [UP↑](#tof)
 
 The error occurs when for example I changed any file on the github website, push
 this changes and next I come back to my local repo and without synchro this changes
