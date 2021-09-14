@@ -29,7 +29,8 @@ have when I'm using the git.
 17. [What is a pull request?](#17)
 18. [Updates were rejected because the remote contains work that you do not have
 locally](#18) 
-19. [](#19)
+19. [remote: Support for password authentication was removed on August 13, 2021
+](#19)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -526,3 +527,22 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 
 This problem described on 
 [StackOverflow](https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have). 
+
+### 19. remote: Support for password authentication was removed on August 13, 2021
+<a name="19"></a>
+
+I had an error:
+```shell
+mozerpol@mozerpol:~/Documents/nauka/githubProbAndSolutions$ git push -u origin main
+Username for 'https://github.com': mozerpol
+Password for 'https://mozerpol@github.com':
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/mozerpol/githubProbAndSolutions.git/'
+```
+
+The easiest way to solve this: 
+`git remote set-url origin https://<token>@github.com/<username>/<repo>`
+
+Problem on 
+[StackOverflow](https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to).
