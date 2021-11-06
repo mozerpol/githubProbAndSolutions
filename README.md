@@ -19,11 +19,11 @@ have when I'm using the git.
 10. [How to delete branch](#10)
 11. [The meaning of the commit options](#11)
     1. -m
-	2. -a
-	3. -amend
+	 2. -a
+	 3. -amend
 12. [How to name commits](#12)
 13. [Why can't I see my commits](#13)
-14. [git after tab does not have prompts](#14)
+14. [git no hint after pressing *tab*](#14)
 15. [How to change default editor for commits](#15)
 16. [Commit template](#16)
 17. [What is a pull request?](#17)
@@ -31,6 +31,7 @@ have when I'm using the git.
 locally](#18) 
 19. [remote: Support for password authentication was removed on August 13, 2021
 ](#19)
+20. [*.gitignore*](#20)
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -382,7 +383,7 @@ To change this just change project email to your email from github. To do this: 
 If is different, then:
 2. `git config --global user.email "YOUR_GITHUB_EMAIL_ADDRESS"`
 
-### 14. "*git after tab does not have prompts*"  <a name="14"></a> [UP↑](#tof)
+### 14. git no hint after pressing *tab* <a name="14"></a> [UP↑](#tof)
 After *git* installation I had a problem with git propter. Perhaps problem was
 with *bash*. I repaired it just: `sudo apt install git-core bash-completion`. <br/>
 Problem on described on StackOverflow: <br/>
@@ -557,3 +558,29 @@ The easiest way to solve this:
 
 Problem on 
 [StackOverflow](https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to).
+
+### 20. *.gitignore*
+Assume this directory: <br/>
+```
+a/
+|___aa/
+|   |___file1aa
+|   |___file2aa
+|   |___file3aa
+|
+.gitignore
+|
+b/
+|___ba/
+|   |___baa/
+|       |___file1baa
+|       |___file2baa
+|       |___file3baa
+```
+How to ignore all folders? <br/>
+If we want add all files from *baa* folder, then we must add to *.gitignore*
+line: `b/ba/baa/*` <br/>
+
+How to ignore files? <br/>
+If we want ignore *file2aa* from *aa* folder, then we must add to *.gitignore*
+line: `a/aa/file2aa`
