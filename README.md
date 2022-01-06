@@ -5,6 +5,7 @@ have when I'm using the git.
 ------------
 
 ### Table of contents <a name="tof"></a>
+A. [GIT](#A)
 1. The easiest way to create new repo and pushing first commit
 2. [*error: failed to push some refs to*](#2)
 3. [Downloading the latest version of commit](#3)
@@ -32,6 +33,11 @@ locally](#18)
 19. [remote: Support for password authentication was removed on August 13, 2021
 ](#19)
 20. [*.gitignore*](#20)
+
+B. [SVN](#B)
+1. [How to install](#1b)
+
+## A. GIT <a name="A"></a> [UP↑](#tof) 
 
 ### 1. The easiest way to create new repo and pushing first commit 
 We have two ways.
@@ -584,3 +590,9 @@ line: `b/ba/baa/*` <br/>
 How to ignore files? <br/>
 If we want ignore *file2aa* from *aa* folder, then we must add to *.gitignore*
 line: `a/aa/file2aa`
+
+## B. SVN <a name="B"></a> [UP↑](#tof) 
+SVN is related to git, so I decided to put protips for this tool here. There
+won't be a lot info, so imo not make any sense create a new repo. <br/>
+
+### 1. How to install <a name="1b"></a> [UP↑](#tof) 
