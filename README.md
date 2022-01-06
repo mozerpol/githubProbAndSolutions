@@ -1,5 +1,5 @@
 # Repo description
-I'll post here all (and especially the most popular) problems or tips, that I 
+I'll post here all (and especially the most popular) problems or tips, that I
 have when I'm using the git.
 
 ------------
@@ -29,7 +29,7 @@ A. [GIT](#A)
 16. [Commit template](#16)
 17. [What is a pull request?](#17)
 18. [Updates were rejected because the remote contains work that you do not have
-locally](#18) 
+locally](#18)
 19. [remote: Support for password authentication was removed on August 13, 2021
 ](#19)
 20. [*.gitignore*](#20)
@@ -37,9 +37,9 @@ locally](#18)
 B. [SVN](#B)
 1. [How to install](#1b)
 
-## A. GIT <a name="A"></a> [UP↑](#tof) 
+## A. GIT <a name="A"></a> [UP↑](#tof)
 
-### 1. The easiest way to create new repo and pushing first commit 
+### 1. The easiest way to create new repo and pushing first commit
 We have two ways.
 
 #### First:
@@ -69,8 +69,8 @@ and from drop-down list copy adress your repo.
 ### 2. "*error: failed to push some refs to*" <a name="2"></a> [UP↑](#tof)
 **Short desc:** When I try to upload updates to the repository after a successful
 commit. <br/>
-**Possible cause:** Changing the same repository in two different places 
-(e.g. on the computer and via github.com) without subsequent synchronization. 
+**Possible cause:** Changing the same repository in two different places
+(e.g. on the computer and via github.com) without subsequent synchronization.
 After that an attempt to upload a latest commit from computer to the github.
 
 **Problem:**
@@ -78,7 +78,7 @@ After that an attempt to upload a latest commit from computer to the github.
 `mozerpol@mozerpol-pc: git push -u origin main`
 
 Username for 'https://github.com': mozerpol
-Password for 'https://mozerpol@github.com': 
+Password for 'https://mozerpol@github.com':
 To https://github.com/mozerpol/OPTSE.git
  ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/mozerpol/OPTSE.git'
@@ -97,7 +97,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 2. `git push -u origin main`
 
 Similar problem on the stack overflow [date of access: 09.12.2020]: <br/>
-https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have 
+https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have
 ### 3. Downloading the latest version of commit <a name="3"></a> [UP↑](#tof)
 Copy it to the terminal
 1. `git reset --hard HEAD`
@@ -107,16 +107,16 @@ Copy it to the terminal
 ### 4. Deleting the latest commit <a name="4"></a> [UP↑](#tof)
 If you want do this, put this command into terminal: `git reset --soft HEAD~1`
 
-**It's very important!** After this you must add new changes, commit them and 
+**It's very important!** After this you must add new changes, commit them and
 push with force flag. Without this you'll have a problem from *problem number 2*.
 
 ### 5. Merging two git repo into one <a name="5"></a> [UP↑](#tof)
 Based on
-[this](https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/) 
+[this](https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/)
 article (date of access: 24.06.2021).
 
-Very important info. You will keep all history of commits, but unfortunately 
-you'll lose the number of daily contributions from the table on your github 
+Very important info. You will keep all history of commits, but unfortunately
+you'll lose the number of daily contributions from the table on your github
 profile page, I mean: <br/>
 ![obraz](https://user-images.githubusercontent.com/43972902/123415620-d7211b00-d5b5-11eb-9b38-f15687b23ebe.png)
 
@@ -130,12 +130,12 @@ Step by step:
 4. Add a remote for and fetch the first old repo. <br/>
 `git remote add -f old_a <link to the first project>`, example: <br/>
 `git remote add -f old_a https://github.com/mozerpol/learningVerilog.git` <br/>
-But very important info, you must be careful, you can't have two the same files 
+But very important info, you must be careful, you can't have two the same files
 in old and new repo like "README.md", in this case will be an error.
 5. `git merge old_a/main --allow-unrelated-histories` <br/>
 Why we must add
 [--allow-unrelated-histories](#https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories-on-rebase)? <br/>
-After execution this instruction (in my case) will open nano editor to add 
+After execution this instruction (in my case) will open nano editor to add
 comment, you can just close this without adding sth.
 6. Delete first unnecessary commit and commit changes. <br/>
 `rm deleteme.txt` <br/>
@@ -156,8 +156,8 @@ Do the same thing for old_b
 5. `git add .`
 6. `git commit -m "Move old_b files into subdir"`
 
-Merge repos, but before find files, which have the same name e.g. README.md in 
-*old_a* and *old_b* folder. It's not allowed, you must get rid of this conflict 
+Merge repos, but before find files, which have the same name e.g. README.md in
+*old_a* and *old_b* folder. It's not allowed, you must get rid of this conflict
 and commit changes.
 1. Extract *old_a* and *old_b* to a shared folder <br/>
 `mv old_a/* ./` <br/>
@@ -173,7 +173,7 @@ To see remote branches: `git branch -r` <br/>
 To see all local and remote branches: `git branch -a` <br/>
 
 #### Differences between local branch and remote branch.
-A local branch is a branch that only you (the local user) can see. It exists 
+A local branch is a branch that only you (the local user) can see. It exists
 only on your local machine.
 ```shell
 git branch myNewBranch        # Create local branch named "myNewBranch"
@@ -191,25 +191,25 @@ git push -u origin myNewBranch   # Pushes your newly created local branch "myNew
 
 #### Differences between remote tracking branch and local tracking branch.
 A remote tracking branch is a local copy of a remote branch. When *myNewBranch*
-is pushed to *origin* using the command above, a remote tracking branch named 
-*origin/myNewBranch* is created on your machine. This remote tracking branch 
-tracks the remote branch *myNewBranch* on *origin*. You can update your remote 
-tracking branch to be in sync with the remote branch using `git fetch` or 
+is pushed to *origin* using the command above, a remote tracking branch named
+*origin/myNewBranch* is created on your machine. This remote tracking branch
+tracks the remote branch *myNewBranch* on *origin*. You can update your remote
+tracking branch to be in sync with the remote branch using `git fetch` or
 `git pull`.
 ```shell
-git pull origin myNewBranch      # Pulls new commits from branch "myNewBranch" 
+git pull origin myNewBranch      # Pulls new commits from branch "myNewBranch"
                                  # on remote "origin" into remote tracking
                                  # branch on your machine "origin/myNewBranch".
                                  # Here "origin/myNewBranch" is your copy of
                                  # "myNewBranch" on "origin"
 ```
 
-A local tracking branch is a local branch that is tracking another branch. 
+A local tracking branch is a local branch that is tracking another branch.
 This is so that you can push/pull commits to/from the other branch. Local
 tracking branches in most cases track a remote tracking branch. When you push a
-local branch to *origin* using the `git push` command with a `-u` option (as shown 
-above), you set up the local branch *myNewBranch* to track the remote tracking 
-branch *origin/myNewBranch*. This is needed to use `git push` and `git pull` 
+local branch to *origin* using the `git push` command with a `-u` option (as shown
+above), you set up the local branch *myNewBranch* to track the remote tracking
+branch *origin/myNewBranch*. This is needed to use `git push` and `git pull`
 without specifying an upstream to push to or pull from.
 ```shell
 git checkout myNewBranch      # Switch to myNewBranch
@@ -236,7 +236,7 @@ Now *master* and *other_branch* are the same, so we can delete *other_branch*: <
 
 ### 9. How to print out the history of commits with branches <a name="9"></a> [UP↑](#tof)
 There is a several ways, the best for me: <br/>
-1. Default history, with no arguments: `git log`. Each commit is with SHA-1 
+1. Default history, with no arguments: `git log`. Each commit is with SHA-1
 checksum, the author’s name and email, the date written, and the commit message.
 2. Some abbreviated stats for each commit, such as how many files were changed,
 number of deletions and insertions: `git log --stat`
@@ -261,7 +261,7 @@ number of deletions and insertions: `git log --stat`
 | %cr | Committer date, relative |
 | %s | Subject |
 
-But be careful, between *format:* and *"* there is no space. 
+But be careful, between *format:* and *"* there is no space.
 
 4. Add a little ASCII graph showing branch and merge history: <br/>
 `git log --pretty=format:"%h - %an, %ar : %s" --graph`
@@ -275,7 +275,7 @@ Nice link about
 `git branch -d other_branch`
 
 ### 11. The meaning of the commit options <a name="11"></a> [UP↑](#tof)
-The git `commit` command will save all staged changes, along with a brief 
+The git `commit` command will save all staged changes, along with a brief
 description from the user, in a *commit* to the local repository.
 
 #### -m
@@ -283,8 +283,8 @@ It's required message to commit. If the `-m` is not included with the `git commi
 command, you will be prompted to add a message in your default text editor.
 
 #### -a
-This option automatically stages all modified files to be committed. If new 
-files are added the `-a` option will not stage those new files. Only files that 
+This option automatically stages all modified files to be committed. If new
+files are added the `-a` option will not stage those new files. Only files that
 the Git repository is aware of will be committed.
 
 #### -amend
@@ -307,10 +307,10 @@ bb70703, Desc how to merging two git repo into one
 
 ### 12. How to name commits <a name="12"></a> [UP↑](#tof)
 The seven rules of a great Git commit message: <br/>
-1. begin the commit message with a single short (less than 50 character) line 
-summarizing the change. The first line in a commit message is treated as the 
-commit title. Sometimes a single line is fine (not every commit requires both 
-a subject and a body.), especially when the change is so simple that no further 
+1. begin the commit message with a single short (less than 50 character) line
+summarizing the change. The first line in a commit message is treated as the
+commit title. Sometimes a single line is fine (not every commit requires both
+a subject and a body.), especially when the change is so simple that no further
 context is necessary. Example of short (one line) commit: <br/>
 ```
 Fix typo in introduction to user guide
@@ -345,12 +345,12 @@ Imperative mood means: <br/>
 - Take out the trash
 
 6. Wrap the body at 72 characters. <br/>
-The recommendation is to do this at 72 characters, so that Git has plenty of 
+The recommendation is to do this at 72 characters, so that Git has plenty of
 room to indent text while still keeping everything under 80 characters overall.
 
 7. Use the body to explain what and why vs. how. <br/>
-[This](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6) 
-commit from Bitcoin Core is a great example of explaining what changed and 
+[This](https://github.com/bitcoin/bitcoin/commit/eb0b56b19017ab5c16c745e6da39c53126924ed6)
+commit from Bitcoin Core is a great example of explaining what changed and
 why: <br/>
 ```shell
 commit eb0b56b19017ab5c16c745e6da39c53126924ed6
@@ -376,12 +376,12 @@ Date:   Fri Aug 1 22:57:55 2014 +0200
    them.
 ```
 Of course in most cases, you can leave out details about how a change has been
-made. 
+made.
 
 Based on: https://chris.beams.io/posts/git-commit/
 
 ### 13. Why can't I see my commits <a name="13"></a> [UP↑](#tof)
-Can be a several possibilities, in my case it was fact that email address used 
+Can be a several possibilities, in my case it was fact that email address used
 for the commits is associated with different github account. <br/>
 To change this just change project email to your email from github. To do this: <br/>
 1. Check the project owner (email): <br/>
@@ -404,14 +404,14 @@ Open file *$HOME/.gitconfig* and add line:
 
 ### 16. How to change commit template <a name="16"></a> [UP↑](#tof)
 Commit template is prompt message when you commit. To change this, just create
-file *.gitmessage.txt* inside your home dir. After this open file 
+file *.gitmessage.txt* inside your home dir. After this open file
 *$HOME/.gitconfig* and add line:
 ```
-[commit]                                                                        
-	template = ~/.gitmessage.txt    
+[commit]
+	template = ~/.gitmessage.txt
 ```
 
-To *.gitmessage.txt* you can add whatever, but I added: 
+To *.gitmessage.txt* you can add whatever, but I added:
 ```shell
 
 
@@ -424,8 +424,8 @@ To *.gitmessage.txt* you can add whatever, but I added:
 # Wrap at 72 chars.
 
 
-# At the end: Include Co-authored-by for all contributors. 
-# Include at least one empty line before it. Format: 
+# At the end: Include Co-authored-by for all contributors.
+# Include at least one empty line before it. Format:
 # Co-authored-by: name <user@users.noreply.github.com>
 #
 # 1. Limit the subject line to 50 characters
@@ -448,14 +448,14 @@ My *.gitconfig* file: <br/>
 	email = krzmozer@student.pg.edu.pl
 [core]
 	editor = nvim
-[commit]                                                                        
+[commit]
 	template = ~/.gitmessage.txt
 ```
 
 ### 17. What is a pull request? <a name="17"></a> [UP↑](#tof)
 When you open a pull request, you’re proposing your changes and requesting that
-someone review and pull in your contribution and merge them into their branch. 
-Pull requests show *diffs* (*differences*), of the content from both branches. 
+someone review and pull in your contribution and merge them into their branch.
+Pull requests show *diffs* (*differences*), of the content from both branches.
 
 Why is a git *pull request* not called a *push request*? <br/>
 When you send a *pull request*, you're asking (requesting) the official repo
@@ -463,20 +463,20 @@ owner to pull some changes from your own repo. Hence "pull request". <br/>
 By default a safety net is set so no one can push to your repo. You can set
 others as a collaborator, then they can push. <br/>
 Question on
-[stackoverflow](https://stackoverflow.com/questions/21657430/why-is-a-git-pull-request-not-called-a-push-request). 
+[stackoverflow](https://stackoverflow.com/questions/21657430/why-is-a-git-pull-request-not-called-a-push-request).
 
 ### 18. Updates were rejected because the remote contains work that you do not have locally <a name="18"></a> [UP↑](#tof)
 
 The error occurs when for example I changed any file on the github website, push
 this changes and next I come back to my local repo and without synchro this changes
-I want push a new commit. 
+I want push a new commit.
 
 Error log: <br/>
 ```shell
-mozerpol@mozerpol-pc:/learningRISC-V/implementation$ git push -u origin main 
+mozerpol@mozerpol-pc:/learningRISC-V/implementation$ git push -u origin main
 
 Username for 'https://github.com': mozerpol
-Password for 'https://mozerpol@github.com': 
+Password for 'https://mozerpol@github.com':
 To https://github.com/mozerpol/learningRISC-V
  ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/mozerpol/learningRISC-V'
@@ -492,7 +492,7 @@ What to do:
 `! [rejected]        main -> main (fetch first)` <br/>
 2. `git pull <remote> from:where`, <br/> in my case:
 ```shell
-mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git pull origin main:main 
+mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git pull origin main:main
 
 remote: Enumerating objects: 8, done.
 remote: Counting objects: 100% (8/8), done.
@@ -503,9 +503,9 @@ From https://github.com/mozerpol/learningRISC-V
  ! [rejected]        main       -> main  (non-fast-forward)
    40f9349..aee651b  main       -> origin/main
 ```
-3. Git status: 
+3. Git status:
 ```shell
-mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git status 
+mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git status
 
 On branch main
 Your branch and 'origin/main' have diverged,
@@ -516,7 +516,7 @@ nothing to commit, working tree clean
 ```
 4. Pull changes:
 ```shell
-mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git pull origin main 
+mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git pull origin main
 
 From https://github.com/mozerpol/learningRISC-V
  * branch            main       -> FETCH_HEAD
@@ -525,12 +525,12 @@ Merge made by the 'recursive' strategy.
  1 file changed, 9 insertions(+), 8 deletions(-)
 ```
 
-5. Push changes: 
+5. Push changes:
 ```shell
-mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git push -u origin main 
+mozerpol@mozerpol-pc: /learningRISC-V/implementation$ git push -u origin main
 
 Username for 'https://github.com': mozerpol
-Password for 'https://mozerpol@github.com': 
+Password for 'https://mozerpol@github.com':
 Enumerating objects: 36, done.
 Counting objects: 100% (29/29), done.
 Delta compression using up to 4 threads
@@ -543,8 +543,8 @@ To https://github.com/mozerpol/learningRISC-V
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
 
-This problem described on 
-[StackOverflow](https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have). 
+This problem described on
+[StackOverflow](https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have).
 
 ### 19. remote: Support for password authentication was removed on August 13, 2021
 <a name="19"></a>
@@ -559,10 +559,10 @@ remote: Please see https://github.blog/2020-12-15-token-authentication-requireme
 fatal: Authentication failed for 'https://github.com/mozerpol/githubProbAndSolutions.git/'
 ```
 
-The easiest way to solve this: 
+The easiest way to solve this:
 `git remote set-url origin https://<token>@github.com/<username>/<repo>`
 
-Problem on 
+Problem on
 [StackOverflow](https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to).
 
 ### 20. *.gitignore*
@@ -591,8 +591,8 @@ How to ignore files? <br/>
 If we want ignore *file2aa* from *aa* folder, then we must add to *.gitignore*
 line: `a/aa/file2aa`
 
-## B. SVN <a name="B"></a> [UP↑](#tof) 
+## B. SVN <a name="B"></a> [UP↑](#tof)
 SVN is related to git, so I decided to put protips for this tool here. There
 won't be a lot info, so imo not make any sense create a new repo. <br/>
 
-### 1. How to install <a name="1b"></a> [UP↑](#tof) 
+### 1. How to install <a name="1b"></a> [UP↑](#tof)
