@@ -33,9 +33,7 @@ locally](#18)
 19. [remote: Support for password authentication was removed on August 13, 2021
 ](#19)
 20. [*.gitignore*](#20)
-
-B. [SVN](#B)
-1. [How to install](#1b)
+21. [Show git log with file name](#21)
 
 ## A. GIT <a name="A"></a> [UP↑](#tof)
 
@@ -546,8 +544,7 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 This problem described on
 [StackOverflow](https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have).
 
-### 19. remote: Support for password authentication was removed on August 13, 2021
-<a name="19"></a>
+### 19. remote: Support for password authentication was removed on August 13, 2021  <a name="19"></a> [UP↑](#tof) 
 
 I had an error:
 ```shell
@@ -565,7 +562,7 @@ The easiest way to solve this:
 Problem on
 [StackOverflow](https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to).
 
-### 20. *.gitignore*
+### 20. *.gitignore* <a name="20"></a> [UP↑](#tof) 
 Assume this directory: <br/>
 ```
 a/
@@ -591,8 +588,18 @@ How to ignore files? <br/>
 If we want ignore *file2aa* from *aa* folder, then we must add to *.gitignore*
 line: `a/aa/file2aa`
 
-## B. SVN <a name="B"></a> [UP↑](#tof)
-SVN is related to git, so I decided to put protips for this tool here. There
-won't be a lot info, so imo not make any sense create a new repo. <br/>
+### 21. Show git log with file name <a name="21"></a> [UP↑](#tof) 
+`git log --name-only`
 
-### 1. How to install <a name="1b"></a> [UP↑](#tof)
+Example result:
+
+```shell
+commit 98b1dc9d482d4af610eb8306f5fd37676a1a542f (HEAD -> main, origin/main, origin/HEAD)
+Author: mozerpol <krzmozer@student.pg.edu.pl>
+Date:   Sat Feb 25 20:01:15 2023 +0100
+
+    Add and bind ports in design and test
+
+implementation/VHDL_rysyCore/core/cmp/cmp_design.vhd
+implementation/VHDL_rysyCore/core/cmp/cmp_tb.vhd
+```
