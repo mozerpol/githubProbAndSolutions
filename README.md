@@ -544,7 +544,7 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 This problem described on
 [StackOverflow](https://stackoverflow.com/questions/24357108/git-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-have).
 
-### 19. remote: Support for password authentication was removed on August 13, 2021  <a name="19"></a> [UP↑](#tof) 
+### 19. remote: Support for password authentication was removed on August 13, 2021  <a name="19"></a> [UP↑](#tof)
 
 I had an error:
 ```shell
@@ -562,7 +562,7 @@ The easiest way to solve this:
 Problem on
 [StackOverflow](https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to).
 
-### 20. *.gitignore* <a name="20"></a> [UP↑](#tof) 
+### 20. *.gitignore* <a name="20"></a> [UP↑](#tof)
 Assume this directory: <br/>
 ```
 a/
@@ -588,7 +588,7 @@ How to ignore files? <br/>
 If we want ignore *file2aa* from *aa* folder, then we must add to *.gitignore*
 line: `a/aa/file2aa`
 
-### 21. Show git log with file name <a name="21"></a> [UP↑](#tof) 
+### 21. Show git log with file name <a name="21"></a> [UP↑](#tof)
 `git log --name-only`
 
 Example result:
