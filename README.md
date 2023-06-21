@@ -2,7 +2,7 @@
 I'll post here all (and especially the most popular) problems or tips, that I
 have when I'm using the git.
 
-------------
+------------ 
 
 ### Table of contents <a name="tof"></a>
 A. [GIT](#A)
