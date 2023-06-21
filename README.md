@@ -5,7 +5,6 @@ have when I'm using the git.
 ------------ 
 
 ### Table of contents <a name="tof"></a>
-A. [GIT](#A)
 1. The easiest way to create new repo and pushing first commit
 2. [*error: failed to push some refs to*](#2)
 3. [Downloading the latest version of commit](#3)
@@ -34,8 +33,7 @@ locally](#18)
 ](#19)
 20. [*.gitignore*](#20)
 21. [Show git log with file name](#21)
-
-## A. GIT <a name="A"></a> [UP↑](#tof)
+22. [How to delete last commits](#22)
 
 ### 1. The easiest way to create new repo and pushing first commit
 We have two ways.
@@ -603,3 +601,12 @@ Date:   Sat Feb 25 20:01:15 2023 +0100
 implementation/VHDL_rysyCore/core/cmp/cmp_design.vhd
 implementation/VHDL_rysyCore/core/cmp/cmp_tb.vhd
 ```
+
+### 22. How to delet last 5 commits <a name="22"></a> [UP↑](#tof)
+`git rebase -i HEAD~5 ` <br/>
+This will open a text editor with a list of the last 5 commits. To delete a 
+commit, change the word **pick** at the beginning of the line to **drop**.
+Save and close the file. If there are conflicts during the rebase, you will 
+need to resolve them. <br/>
+`git rebase --continue` <br/>
+`git push -u --force`
