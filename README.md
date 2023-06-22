@@ -554,8 +554,17 @@ remote: Please see https://github.blog/2020-12-15-token-authentication-requireme
 fatal: Authentication failed for 'https://github.com/mozerpol/githubProbAndSolutions.git/'
 ```
 
-The easiest way to solve this:
+Two options to solve this error:
+#### 1. The easiest way to solve this:
 `git remote set-url origin https://<token>@github.com/<username>/<repo>`
+
+#### 2. Only during cloning a repo
+`git config --global user.name "username"`
+`git config --global user.email "email@domain.com"`
+`git config -l`
+`git config --global credential.helper cache`
+
+`git clone https://<token>@github.com/<username>/<repo>.git`
 
 Problem on
 [StackOverflow](https://stackoverflow.com/questions/68775869/support-for-password-authentication-was-removed-please-use-a-personal-access-to).
