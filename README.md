@@ -559,10 +559,10 @@ Two options to solve this error:
 `git remote set-url origin https://<token>@github.com/<username>/<repo>`
 
 #### 2. Only during cloning a repo
-`git config --global user.name "username"`
-`git config --global user.email "email@domain.com"`
-`git config -l`
-`git config --global credential.helper cache`
+`git config --global user.name "username"` <br/>
+`git config --global user.email "email@domain.com"` <br/>
+`git config -l` <br/>
+`git config --global credential.helper cache` <br/>
 
 `git clone https://<token>@github.com/<username>/<repo>.git`
 
