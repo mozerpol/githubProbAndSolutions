@@ -34,6 +34,7 @@ locally](#18)
 20. [*.gitignore*](#20)
 21. [Show git log with file name](#21)
 22. [How to delete last commits](#22)
+23. [Your branch and 'origin/master' have diverged...](#23)
 
 ### 1. The easiest way to create new repo and pushing first commit
 We have two ways.
@@ -619,3 +620,34 @@ Save and close the file. If there are conflicts during the rebase, you will
 need to resolve them. <br/>
 `git rebase --continue` <br/>
 `git push -u --force`
+
+### 23. Your branch and 'origin/master' have diverged... <a name="23"></a> [UP↑](#tof)
+There are two branches:
+1. Local - has some changes and commits ahead of the remote branch.
+2. Remote - is not up to date in relation to local branch and has some changes,
+which local branch doesn't have. <br/>
+```shell
+$ git status 
+
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 4 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+```
+
+To solve this:
+1. `git fetch origin` - update local copy of remote repository
+2. `git merge origin master`
+3. Resolve conflicts (from *both modified*): <br/>
+```shell
+Changes to be committed:
+	modified:   ../.gitignore
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   ../test/testcase_00.vhdl
+```
+4. After resolving conflicts: `git commit`
+5. `git push -u origin/master`
+6. To see changes: `git log --oneline --graph --decorate --all`
+
