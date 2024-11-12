@@ -35,6 +35,7 @@ locally](#18)
 21. [Show git log with file name](#21)
 22. [How to delete last commits](#22)
 23. [Your branch and 'origin/master' have diverged...](#23)
+24. [Rebase vs merge](#24)
 
 ### 1. The easiest way to create new repo and pushing first commit
 We have two ways.
@@ -651,3 +652,29 @@ Unmerged paths:
 5. `git push -u origin/master`
 6. To see changes: `git log --oneline --graph --decorate --all`
 
+### 24. Rebase vs master <a name="24"></a> [UP↑](#tof)
+1. `git merge origin/master` - creates a merge commit that combines the changes 
+from both branches while preserving their histories, can lead to a more complex 
+history with potential "merge bubbles". <br/>
+```
+  Before merge:
+  A---B---C (master)
+       \
+        D---E (feature)
+
+  After merge:
+  A---B---C---M (master)
+       \     /
+        D---E (feature)
+```
+2. `git rebase origin/master`- rewrites the commit history, creates a linear 
+history, which can make it easier to understand project history. <br/>
+```
+  Before rebase:
+  A---B---C (master)
+       \
+        D---E (feature)
+
+  After rebase:
+  A---B---C---D'---E' (feature)
+```
